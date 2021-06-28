@@ -1,0 +1,18 @@
+# install
+pip install pytest
+
+# fixture documentation
+pytest --fixtures
+
+# markers
+python -m pytest --markers
+
+TYPES
+
+Stub: Tiene los mismos metodos de la clase que se deasea reemplazar pero su implementación es muy simple
+      No tiene logico o comportamiento
+
+Fake: Es una implementacion mas realista, a diferencia de un stub, podemos reemplazarlo con alguna implementacion con algo
+      mas rapido, por ejemplo podemos reemplazar un archivo real con una implementación de StringIO que tiene los mismo
+      metodos que un archivo y es mas rapido porque es manejado en memoria.
+

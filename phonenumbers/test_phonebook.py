@@ -13,7 +13,7 @@ class PhoneBookTest(unittest.TestCase):
         number = self.phonebook.lookup("Bob")
         self.assertEqual("12345", number)  # Expected, Actual
 
-    def test_missing_name(self):
+    def test_missing_name_raises_error(self):
         with self.assertRaises(KeyError):
             self.phonebook.lookup("missing")
 
@@ -35,3 +35,9 @@ class PhoneBookTest(unittest.TestCase):
         self.phonebook.add("Bob", "12345")
         self.phonebook.add("Anna", "123")
         self.assertFalse(self.phonebook.is_consistent())
+
+    def test_phonebook_adds_names_and_numbers(self):
+        self.phonebook.add("Sue", "123343")
+        self.assertIn("Sue", self.phonebook.get_names())
+        self.assertIn("123343", self.phonebook.get_numbers())
+
